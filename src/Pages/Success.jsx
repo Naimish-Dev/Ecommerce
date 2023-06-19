@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { useLocation } from "react-router-dom";
 import { userRequest } from "../AxiosReq.jsx";
-import { useSelector, useDispatch } from "react-redux";
+import {  useDispatch } from "react-redux";
 import { removefromcart } from "../Redux/CartSlice.js";
 const Container = styled.div`
   width: 100vw;
@@ -43,7 +43,7 @@ console.log(data.state);
       }
     };
     setdata();
-  }, [ ]);
+  }, [ data.state.addressid, data.state.cartid, data.state.transactionid, data.state.userid, dispatch, request]);
 
 
   return (

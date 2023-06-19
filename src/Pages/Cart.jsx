@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from "react";
 import Navbar from "../Components/Navbar";
 import Announcement from "../Components/Announcement";
 import Footer from "../Components/Footer";

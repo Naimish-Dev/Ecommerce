@@ -3,13 +3,7 @@ import styled from "styled-components";
 import { tablet,mobile } from "../Respinsive";
 
 
-const Bottom = styled.div`
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  ${tablet({ flexDirection: "column" })}
-  position:relative
-`;
+
 
 
 const Product = styled.div`

@@ -96,7 +96,7 @@ const Checkout = () => {
       }
     };
     usercartId && getaddress();
-  }, []);
+  }, [request, usercartId]);
 
   const onaddresshendler = (addressid1) => {
     setaddressid(addressid1);
@@ -119,7 +119,7 @@ const Checkout = () => {
       }
     };
     token && makerequest();
-  }, [token, addressid]);
+  }, [token, addressid, carddetails.amount, request]);
 
   useEffect(() => {
     const makerequest = async () => {
@@ -145,7 +145,14 @@ const Checkout = () => {
       }
     };
     payment && makerequest();
-  }, [payment]);
+  }, [
+    payment,
+    addressid,
+    carddetails._id,
+    navigate,
+    request,
+    user.userdata._id,
+  ]);
 
   const cartdatahendler = () => {};
 
