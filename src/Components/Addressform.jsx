@@ -45,33 +45,32 @@ const Addressform = ({ userid, addresss }) => {
 
   
   useEffect(() => {
-    const getaddress = async () => {
-      try {
-        const responce = await request.get(`address/find/${userid}`);
-        responce.status === 200 && setforndata(responce.data[0]);
-        responce.data.length === 0 ? setbtn(false) : setbtn(true);
-
-        responce.status === 200 && addresss(responce.data[0]._id);
-      } catch (e) {
-        console.log(e);
-      }
-    };
+     const getaddress = async () => {
+       try {
+         const responce = await request.get(`address/find/${userid}`);
+         responce.status === 200 && setforndata(responce.data[0]);
+         responce.data.length === 0 ? setbtn(false) : setbtn(true);
+         
+        responce.status === 200  && addresss(responce.data[0]._id);
+       } catch (e) {
+         console.log(e);
+       }
+     };
     getaddress();
-  }, [addresss, request, userid]);
+
+  }, []);
 
   const setaddress = async () => {
-    
-    
     try {
       if (btn) {
-        const responce = await request.put(`address/${formdata._id}`, {
+        const responce = await userRequest.put(`address/${formdata._id}`, {
           userid,
           ...formdata,
         });
         responce.status === 200 && addresss(responce.data._id);
         responce.status === 200 && setforndata(responce.data);
       } else {
-        const responce = await request.post(`address`, {
+        const responce = await userRequest.post(`address`, {
           userid,
           ...formdata,
         });

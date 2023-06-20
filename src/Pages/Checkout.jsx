@@ -26,7 +26,7 @@ const Wrapper = styled.div`
   gap: 10px;
 `;
 
-const Title = styled.h3`
+const Title = styled.h1`
   margin: 10px 20px;
 `;
 
@@ -75,7 +75,7 @@ const Checkout = () => {
   const navigate = useNavigate();
   const request = userRequest();
 
-  const [carddetails, setcarddetails] = useState([]);
+  const [carddetails, setcarddetails] = useState(null);
   const [payment, setpayment] = useState([]);
   const [addressid, setaddressid] = useState(null);
   const [btnvalidation, setbtnvalidation] = useState(true);
@@ -96,7 +96,7 @@ const Checkout = () => {
       }
     };
     usercartId && getaddress();
-  }, [request, usercartId]);
+  }, []);
 
   const onaddresshendler = (addressid1) => {
     setaddressid(addressid1);
@@ -114,12 +114,13 @@ const Checkout = () => {
           user_details: token.card,
         });
         res?.status === 200 && setpayment(res.data);
+        console.log(res);
       } catch (e) {
         console.log(e);
       }
     };
     token && makerequest();
-  }, [token, addressid, carddetails.amount, request]);
+  }, [token, addressid]);
 
   useEffect(() => {
     const makerequest = async () => {
@@ -144,15 +145,8 @@ const Checkout = () => {
         console.log(e);
       }
     };
-    payment && makerequest();
-  }, [
-    payment,
-    addressid,
-    carddetails._id,
-    navigate,
-    request,
-    user.userdata._id,
-  ]);
+    makerequest();
+  }, [payment]);
 
   const cartdatahendler = () => {};
 

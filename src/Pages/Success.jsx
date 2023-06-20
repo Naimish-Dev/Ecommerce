@@ -26,7 +26,6 @@ const Success = () => {
   const dispatch = useDispatch();
 const request=userRequest()
 
-console.log(data.state);
   useEffect(() => {
     const setdata = async () => {
       try {
@@ -43,7 +42,7 @@ console.log(data.state);
       }
     };
     setdata();
-  }, [ data.state.addressid, data.state.cartid, data.state.transactionid, data.state.userid, dispatch, request]);
+  },[]);
 
 
   return (
