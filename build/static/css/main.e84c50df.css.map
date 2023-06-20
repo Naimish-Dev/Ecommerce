@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/main.e84c50df.css","mappings":"AACA,EAIE,qBACF,CACA,OAJE,QAAQ,CACR,SAOF","sources":["index.css"],"sourcesContent":["\n*{\n  /* border :1px solid black; */\n  margin:0;\n  padding:0;\n  box-sizing: border-box;\n}\nbody {\n  margin: 0;\n padding: 0;\n \n}"],"names":[],"sourceRoot":""}
